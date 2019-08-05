@@ -1,20 +1,30 @@
-# android-tiny-permission
-[![Download](https://api.bintray.com/packages/ddnosh/maven/tinypermission/images/download.svg) ](https://bintray.com/ddnosh/maven/tinypermission/_latestVersion)  
-a tiny permission library for android.
+package com.androidwind.permission.sample;
 
-# Solution
-1. use an agent fragment(requestPermissions) to request permission;
-2. the caller handle the callback from the fragment;
-3. no CompatSupport library;
-4. chain way to use;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
-# Function
-1. .permission(...) with the permissions you want;
-2. OnPermission: you handle the callback from the permissions dialog;
+import com.androidwind.permission.OnPermission;
+import com.androidwind.permission.Permission;
+import com.androidwind.permission.TinyPermission;
 
-# Usage
-``` 
-TinyPermission.start(this)
+import java.util.List;
+
+/**
+ * @author ddnosh
+ * @website http://blog.csdn.net/ddnosh
+ */
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+    public void requestPermission(View view) {
+        TinyPermission.start(this)
                 .permission(Permission.READ_EXTERNAL_STORAGE, Permission.WRITE_EXTERNAL_STORAGE)
                 .permission(Permission.RECORD_AUDIO)
                 .request(new OnPermission() {
@@ -38,4 +48,5 @@ TinyPermission.start(this)
                         }
                     }
                 });
-```
+    }
+}
