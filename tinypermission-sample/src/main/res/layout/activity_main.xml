@@ -23,6 +23,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:onClick="requestPermissionBySelf"
+            android:text="系统自带权限" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:onClick="requestPermission"
             android:text="请求权限" />
 
